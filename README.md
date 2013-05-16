@@ -16,7 +16,7 @@ Usage
 
 You can also use in Interface Builder.
 
-![IBuilder](http://path/to/img.jpg)
+![IBuilder](https://github.com/nottihub/SNVolumeSlider/blob/master/ibusage.png)
 
 Please check the included demo project for more options.
 
