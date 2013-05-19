@@ -56,7 +56,6 @@ void onPushVolumeButton(void *inClientData, AudioSessionPropertyID inID, UInt32 
 }
 
 - (void)unsyncVolume {
-    [_volumeView removeFromSuperview];
     [self removeTarget:self action:@selector(movedVolumeSlider:) forControlEvents:UIControlEventValueChanged];
     AudioSessionRemovePropertyListenerWithUserData(kAudioSessionProperty_CurrentHardwareOutputVolume, onPushVolumeButton, (__bridge void *)(self));
 }
