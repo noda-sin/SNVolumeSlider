@@ -10,12 +10,6 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface SNVolumeSlider () {
-    MPVolumeView *_volumeView;
-}
-
-@end
-
 @implementation SNVolumeSlider
 
 void onPushVolumeButton(void *inClientData, AudioSessionPropertyID inID, UInt32 inDataSize, const void *inData) {
@@ -57,9 +51,6 @@ void onPushVolumeButton(void *inClientData, AudioSessionPropertyID inID, UInt32 
     AudioSessionSetActive(YES);
 
     [self setValue:[[MPMusicPlayerController applicationMusicPlayer] volume]];
-    _volumeView = [[MPVolumeView alloc] initWithFrame:CGRectZero];
-    [_volumeView setShowsVolumeSlider:YES];
-    [self addSubview:_volumeView];
     [self addTarget:self action:@selector(movedVolumeSlider:) forControlEvents:UIControlEventValueChanged];
     AudioSessionAddPropertyListener(kAudioSessionProperty_CurrentHardwareOutputVolume, onPushVolumeButton, (__bridge void *)(self));
 }
